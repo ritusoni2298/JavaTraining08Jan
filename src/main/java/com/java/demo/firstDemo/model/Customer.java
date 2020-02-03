@@ -1,11 +1,13 @@
 package com.java.demo.firstDemo.model;
 
+import com.sun.tools.javac.util.List;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 
 //query - > select * from customers
 //insert -> insert into table values ();
@@ -29,6 +31,8 @@ public class Customer {
 
     private String product;
 
+//    @OneToMany
+//    private ArrayList<Order> orders =new ArrayList<>();
 
     private String emailId;
 
