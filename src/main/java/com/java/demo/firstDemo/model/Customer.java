@@ -1,5 +1,6 @@
 package com.java.demo.firstDemo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.tools.javac.util.List;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GeneratorType;
@@ -31,7 +32,9 @@ public class Customer {
 
     private String product;
 
-//    @OneToMany
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn(name="order_id")
+//    @JsonIgnore
 //    private ArrayList<Order> orders =new ArrayList<>();
 
     private String emailId;
@@ -40,13 +43,22 @@ public class Customer {
 
     }
 
-    public Customer(String firstName, String lastName, String address, String product, String emailId){
-        this.firstName= firstName;
-        this.lastName=lastName;
-        this.address=address;
-        this.product=product;
-        this.emailId=emailId;
+    public Customer(String firstName, String lastName, String address, String product, String emailId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.product = product;
+//        this.orders = orders;
+        this.emailId = emailId;
     }
+
+//    public ArrayList<Order> getOrders() {
+//        return orders;
+//    }
+//
+//    public void setOrders(ArrayList<Order> orders) {
+//        this.orders = orders;
+//    }
 
     public Long getId() {
         return id;
