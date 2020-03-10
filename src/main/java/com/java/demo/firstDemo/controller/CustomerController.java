@@ -36,7 +36,7 @@ public class CustomerController {
 
     //post
     @PostMapping("/add")
-    public String addCustomer(@Valid Customer customer, BindingResult result){
+    public String addCustomer(@Valid Customer customer){
         customerRepository.save(customer);
 //        model.addObject("customers",customerRepository.findAll());
 //        model.setViewName("redirect:/list");

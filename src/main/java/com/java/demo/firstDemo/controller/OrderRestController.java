@@ -34,6 +34,21 @@ public class OrderRestController {
             throw new Exception("invalid");
         }
     }
+
+    @GetMapping("/allorders")
+    public List<Order> allOrders(Long id){
+        return orderRepository.findAll();
+    }
+
+
+    @PostMapping("/allorders")
+    public Order postOrder(@Valid @RequestBody Order order){
+//        List<Order> orders = orderRepository.findByCustomer(order.getCustomer());
+        order.setCustomer(customerRepository.save(order.getCustomer()));
+        return orderRepository.save(order);
+    }
+
+
     //put and delete of mapped models
 
 
